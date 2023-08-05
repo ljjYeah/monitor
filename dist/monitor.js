@@ -1,0 +1,1 @@
+(()=>{"use strict";window.__monitor={collect:function(){console.log("数据收集")},upload:function(){console.log("数据上报")}}})();
