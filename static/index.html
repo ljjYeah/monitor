@@ -9,7 +9,21 @@
 <body page-id="p123456">
   <script>
     window.onload=function() {
-      window.__monitor.sendPV();
+      const m = window.__monitor;
+      m.registerOnError(function(e){
+        console.log(e)
+      })
+      m.registerBeforeCreateParams(function() {
+        console.log('在创建参数前调用');
+      });
+      m.registerBeforeUpload(function(data){
+        console.log('上报之前调用')
+        return data + '&custom = 1';
+      });
+      m.registerAfterUpload(function(url, data){
+        console.log('上报之后调用', url, data);
+      });
+      m.sendPV();
     }
   </script>
 </body>

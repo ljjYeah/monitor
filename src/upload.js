@@ -5,14 +5,16 @@
  * eventType： PV、EXP、CLICK、CUSTOM
  */
 export function upload(data, options = {}) {
-  
-  const params = encodeURIComponent(data);
   const { eventType = 'PV' } = options;
-  const src = `http://liujuanjuan.com?data=${params}&eventType=${eventType}`
-  console.log('src', src);
+  const params = `${data}&eventType=${eventType};`
+  const src = `http://www.imooc.com?${params}`
   let image = new Image();
   image.src = src;
   image = null;
+  return {
+    url: src,
+    data: params
+  }
 }
 
 export default {};
