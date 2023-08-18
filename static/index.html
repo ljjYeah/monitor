@@ -7,6 +7,19 @@
   <title>监控系统</title>
 </head>
 <body page-id="p123456">
+  <button onclick="stopObserver()">暂停监控DOM2</button>
+  <button onclick="continueObserver()">继续监控DOM2</button>
+  <button onClick="stopAll()">停止监控所有</button>
+  <div class="dom1" style="height: 2000px; background-color: red;">DOM1</div>
+  <div class="dom2" style="height: 500px; background-color: yellowgreen;" appear>DOM2</div>
+  <script>
+    document.querySelector('.dom2').addEventListener('onAppear', function(){
+      console.log('111', 111);
+    });
+    document.querySelector('.dom2').addEventListener('onDisappear', function(){
+      console.log('222', 222);
+    });
+  </script>
   <script>
     window.onload=function() {
       const m = window.__monitor;
